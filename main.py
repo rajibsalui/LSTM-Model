@@ -1,6 +1,7 @@
 import numpy as np
 import streamlit as st
 import matplotlib.pyplot as plt
+import tensorflow as tf
 from tensorflow.keras.models import load_model
 import pandas as pd
 import yfinance as yf
@@ -47,7 +48,7 @@ data_training_array=scaler.fit_transform(data_training)
 
 
 
-model=load_model.load_model('keras_model.h5')
+model=load_model('keras_model.h5')
 
 past_100_days = data_training.tail(100)
 final_df = pd.concat([past_100_days, data_testing], ignore_index=True)
